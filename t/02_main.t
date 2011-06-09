@@ -9,13 +9,14 @@ BEGIN {
 	$^W = 1;
 }
 
-use Test::More tests => 56;
+use Test::More tests => 58;
 use Parse::CSV::Colnames;
 
 my $readfile = catfile( 't', 'data', 'simple.csv' );
 ok( -f $readfile, "$readfile exists" );
 
 
+can_ok("Parse::CSV::Colnames", qw(fields colnames pushcolnames pushcombine));
 
 
 
@@ -92,6 +93,9 @@ SCOPE: {
 		'->fetch returns as expected' );
 	is( $csv->row,    3,  '->row returns 3' );
 	is( $csv->errstr, '', '->errstr returns ""' );
+
+	$csv->pushcombine(7,8);
+	is_deeply( [ $csv->fields ],  [qw{1 2 3 4.5 5 7 8}] , '->pushcombine() returns as expected' );
 
 	is_deeply( [ $csv->colnames ], [ qw{a b c d e} ], '->colnames() (get) returns as expected' );
 	is_deeply( [ $csv->pushcolnames("fext") ], [ qw{a b c d e fext} ], '->pushcolnames() returns as expected' );

@@ -1,4 +1,7 @@
 Revision history for Perl extension Parse::CSV
+0.04 Wed 11 May 2011
+	- adding new method
+		- "pushcombine" adds fields at the end of the actual row
 0.03 Wed 23 Mar 2011
 	First working version
 	- adding new methods:
