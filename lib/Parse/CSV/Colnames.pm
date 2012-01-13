@@ -64,7 +64,7 @@ our @ISA=("Parse::CSV");
 
 use vars qw{$VERSION};
 BEGIN {
-	$VERSION = '0.04';
+	$VERSION = '0.05';
 }
 
 
@@ -163,6 +163,7 @@ So you can rename the colnames (hash-keys in L<Parse::CSV::Colnames> object).
 
 sub colnames {
 	my $self=shift;
+	$self->{fields}=$self->{names} if(exists($self->{names})); # quick and dirty
 	@{$self->{fields}}=@_ if(@_);
 	return @{$self->{fields}};
 }
@@ -182,6 +183,7 @@ in the underlying L<Text::CSV_XS> object. See example 1 and example 4.
 
 sub pushcolnames {
 	my $self=shift;
+	$self->{fields}=$self->{names} if(exists($self->{names})); # quick and dirty
 	push @{$self->{fields}},@_;
 	return @{$self->{fields}};
 }

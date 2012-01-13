@@ -3,13 +3,14 @@ abstract: 'Highly flexible CSV parser including column names (field names) manip
 author:
   - 'Uwe Sarnowski <uwes at cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
   File::Spec: 0.80
   Test::More: 0.47
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
 distribution_type: module
-generated_by: 'Module::Install version 1.00'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.04'
 keywords:
   - columns
   - 'field name'
@@ -34,4 +35,4 @@ requires:
   perl: 5.005
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.04
+version: 0.05
